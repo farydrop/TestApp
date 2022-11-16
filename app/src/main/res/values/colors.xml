@@ -11,4 +11,6 @@
     <color name="color_primary">#FF6E4E</color>
     <color name="color_secondary">#010035</color>
     <color name="color_background">#F8F8F8</color>
+    <color name="color_secondary_wh">#80010035</color>
+    <color name="color_price_ws">#CCCCCC</color>
 </resources>
