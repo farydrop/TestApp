@@ -12,11 +12,13 @@
         android:layout_height="match_parent">
 
         <ImageView
+            android:id="@+id/picture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/samsung_galaxy_s20_ultra_1_1"/>
 
         <TextView
+            android:id="@+id/price_without_discount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/mark_pro_bold"
@@ -27,6 +29,7 @@
             android:layout_marginTop="175dp"/>
 
         <TextView
+            android:id="@+id/discount_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/mark_pro_bold"
@@ -38,6 +41,7 @@
             />
 
         <TextView
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/mark_pro_regular"
@@ -56,6 +60,7 @@
             android:background="@drawable/white_ellipse"/>
 
         <ImageView
+            android:id="@+id/favorites"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="150dp"

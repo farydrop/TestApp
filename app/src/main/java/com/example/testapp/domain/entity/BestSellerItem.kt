@@ -1,6 +1,6 @@
 package com.example.testapp.domain.entity
 
-data class BestSeller(
+data class BestSellerItem(
     val id: Int,
     val isFavorites: Boolean,
     val title: String,
