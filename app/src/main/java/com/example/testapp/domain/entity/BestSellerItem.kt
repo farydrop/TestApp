@@ -1,10 +1,12 @@
 package com.example.testapp.domain.entity
 
+import com.google.gson.annotations.SerializedName
+
 data class BestSellerItem(
     val id: Int,
-    val isFavorites: Boolean,
+    val is_favorites: Boolean,
     val title: String,
-    val priceWithoutDiscount: Int,
-    val discountPrice: Int,
+    val price_without_discount: Int,
+    val discount_price: Int,
     val picture: String
 )
