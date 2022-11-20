@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testapp.R
@@ -13,7 +14,11 @@ class BestSellerListAdapter: RecyclerView.Adapter<BestSellerListAdapter.BestSell
 
     var listStart = emptyList<BestSellerItem>()
 
-    class BestSellerItemViewHolder(view: View):RecyclerView.ViewHolder(view)
+    class BestSellerItemViewHolder(view: View):RecyclerView.ViewHolder(view){
+        val discountPrice: TextView = view.findViewById<TextView>(R.id.discount_price)
+        val priceWithoutDiscount: TextView = view.findViewById<TextView>(R.id.price_without_discount)
+        val title: TextView = view.findViewById<TextView>(R.id.title)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BestSellerItemViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.best_seller_item,parent,false)
@@ -21,9 +26,9 @@ class BestSellerListAdapter: RecyclerView.Adapter<BestSellerListAdapter.BestSell
     }
 
     override fun onBindViewHolder(holder: BestSellerItemViewHolder, position: Int) {
-        holder.itemView.disco.text = listStart[position].ccy
-        holder.itemView.item_buy.text = listStart[position].buy
-        holder.itemView.item_sale.text = listStart[position].sale
+        holder.discountPrice.text = listStart[position].discountPrice.toString()
+        holder.priceWithoutDiscount.text = listStart[position].priceWithoutDiscount.toString()
+        holder.title.text = listStart[position].title
     }
 
     override fun getItemCount(): Int {
