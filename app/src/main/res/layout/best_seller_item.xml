@@ -5,19 +5,21 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="10dp"
-    android:layout_marginBottom="14dp"
-    android:layout_marginEnd="14dp">
+    android:layout_margin="7dp"
+    app:cardCornerRadius="10dp">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/picture"
             android:layout_width="181dp"
             android:layout_height="177dp"
-            android:src="@drawable/samsung_galaxy_s20_ultra_1_1"/>
+            android:src="@drawable/samsung_galaxy_s20_ultra_1_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <TextView
             android:id="@+id/price_without_discount"
@@ -28,7 +30,9 @@
             android:textColor="@color/color_secondary"
             android:textSize="16sp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="175dp"/>
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/picture"/>
 
         <TextView
             android:id="@+id/discount_price"
@@ -38,9 +42,9 @@
             android:text="@string/price"
             android:textColor="@color/color_price_ws"
             android:textSize="10sp"
-            android:layout_marginStart="69dp"
-            android:layout_marginTop="180dp"
-            />
+            android:layout_marginStart="7dp"
+            app:layout_constraintStart_toEndOf="@id/price_without_discount"
+            app:layout_constraintBottom_toBottomOf="@id/price_without_discount"/>
 
         <TextView
             android:id="@+id/title"
@@ -51,25 +55,34 @@
             android:textColor="@color/color_secondary"
             android:textSize="10sp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="199dp"
-            android:layout_marginBottom="15dp"/>
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/price_without_discount"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
         <View
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_marginStart="143dp"
+            android:layout_marginStart="100dp"
             android:layout_marginTop="11dp"
-            android:background="@drawable/white_ellipse"/>
+            android:background="@drawable/white_ellipse"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <ImageView
             android:id="@+id/favorites"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="150dp"
+            android:layout_marginStart="100dp"
             android:layout_marginTop="19dp"
-            android:src="@drawable/ic_disabled_favorites"/>
+            android:src="@drawable/ic_disabled_favorites"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </FrameLayout>
 
 </androidx.cardview.widget.CardView>

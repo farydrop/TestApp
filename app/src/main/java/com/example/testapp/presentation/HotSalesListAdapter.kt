@@ -20,6 +20,7 @@ class HotSalesListAdapter: RecyclerView.Adapter<HotSalesListAdapter.HotSalesList
         val picture = view.findViewById<ImageView>(R.id.hs_picture)
         val title = view.findViewById<TextView>(R.id.hs_title)
         val subtitle = view.findViewById<TextView>(R.id.hs_subtitle)
+        val tvNew = view.findViewById<TextView>(R.id.is_new)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HotSalesListViewHolder {
@@ -33,6 +34,7 @@ class HotSalesListAdapter: RecyclerView.Adapter<HotSalesListAdapter.HotSalesList
         Picasso.with(holder.picture.context)
             .load(hotSalesList[position].picture)
             .into(holder.picture)
+
     }
 
     override fun getItemCount(): Int {

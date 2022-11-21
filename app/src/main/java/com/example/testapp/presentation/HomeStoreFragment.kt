@@ -11,14 +11,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.testapp.R
 import com.example.testapp.databinding.FragmentHomeStoreBinding
 import com.example.testapp.databinding.FragmentSplashBinding
+import com.example.testapp.domain.entity.Category
 import java.lang.RuntimeException
 
 
 class HomeStoreFragment : Fragment() {
 
-    lateinit var recyclerView: RecyclerView
-    lateinit var bestSellerListAdapter: BestSellerListAdapter
-    lateinit var hotSalesListAdapter: HotSalesListAdapter
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var bestSellerListAdapter: BestSellerListAdapter
+    private lateinit var hotSalesListAdapter: HotSalesListAdapter
+    private lateinit var categoryListAdapter: CategoryListAdapter
+    lateinit var categoryArrayList: ArrayList<Category>
+    lateinit var imageId: Array<Int>
+    lateinit var title: Array<String>
+
+
 
     private var _binding: FragmentHomeStoreBinding? = null
     val binding: FragmentHomeStoreBinding
@@ -27,7 +34,25 @@ class HomeStoreFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+
+        imageId = arrayOf(
+            R.drawable.ic_phones,
+            R.drawable.ic_computer,
+            R.drawable.ic_health,
+            R.drawable.ic_books
+        )
+
+        title = arrayOf(
+            "Phones",
+            "Computer",
+            "Health",
+            "Books"
+        )
+
+        categoryArrayList = arrayListOf<Category>()
+        getUserData()
+
         val bestSellersViewModel = ViewModelProvider(this)[BestSellerListViewModel::class.java]
         val hotSalesViewModel = ViewModelProvider(this)[HotSalesListViewModel::class.java]
         _binding = FragmentHomeStoreBinding.inflate(inflater,container,false)
@@ -47,7 +72,19 @@ class HomeStoreFragment : Fragment() {
         hotSalesViewModel.hotSalesList.observe(viewLifecycleOwner) { list ->
             list.body()?.let { hotSalesListAdapter.setlist(it.homeStore) }
         }
+
+        recyclerView = binding.rvCategory
+        categoryListAdapter = CategoryListAdapter(categoryArrayList)
+        recyclerView.adapter = categoryListAdapter
+
         return binding.root
+    }
+
+    private fun getUserData() {
+        for (i in imageId.indices){
+            val category = Category(imageId[i],title[i])
+            categoryArrayList.add(category)
+        }
     }
 
     override fun onDestroyView() {
