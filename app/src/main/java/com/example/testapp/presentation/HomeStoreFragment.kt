@@ -1,12 +1,15 @@
 package com.example.testapp.presentation
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.core.graphics.toColor
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testapp.R
 import com.example.testapp.databinding.FragmentHomeStoreBinding
@@ -74,7 +77,16 @@ class HomeStoreFragment : Fragment() {
         }
 
         recyclerView = binding.rvCategory
-        categoryListAdapter = CategoryListAdapter(categoryArrayList)
+        categoryListAdapter = CategoryListAdapter(categoryArrayList, object: CategoryActionListener{
+            @SuppressLint("ResourceAsColor")
+            override fun onChangeEnableState(category: Category) {
+                /*val ellipse = view?.findViewById<LinearLayout>(R.id.ellipse)
+                ellipse?.backgroundTintMode
+
+                val tvTitle = view?.findViewById<TextView>(R.id.tv_title)
+                title[1] = "dddd"*/
+            }
+        })
         recyclerView.adapter = categoryListAdapter
 
         return binding.root
