@@ -6,15 +6,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.TextView
-import androidx.core.graphics.toColor
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testapp.R
 import com.example.testapp.databinding.FragmentHomeStoreBinding
-import com.example.testapp.databinding.FragmentSplashBinding
 import com.example.testapp.domain.entity.Category
+import com.example.testapp.presentation.adapter.BestSellerListAdapter
+import com.example.testapp.presentation.adapter.HotSalesListAdapter
+import com.example.testapp.presentation.viewmodel.BestSellerListViewModel
+import com.example.testapp.presentation.viewmodel.HotSalesListViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.lang.RuntimeException
 
 
@@ -27,6 +28,7 @@ class HomeStoreFragment : Fragment() {
     lateinit var categoryArrayList: ArrayList<Category>
     lateinit var imageId: Array<Int>
     lateinit var title: Array<String>
+    private lateinit var homeBottomNavigation: BottomNavigationView
 
 
 
@@ -59,6 +61,12 @@ class HomeStoreFragment : Fragment() {
         val bestSellersViewModel = ViewModelProvider(this)[BestSellerListViewModel::class.java]
         val hotSalesViewModel = ViewModelProvider(this)[HotSalesListViewModel::class.java]
         _binding = FragmentHomeStoreBinding.inflate(inflater,container,false)
+
+        homeBottomNavigation = binding.bottomNavigationMain
+        homeBottomNavigation.itemIconTintList = null
+        homeBottomNavigation.setOnClickListener{
+
+        }
 
         recyclerView = binding.rvBestSeller
         bestSellerListAdapter = BestSellerListAdapter()

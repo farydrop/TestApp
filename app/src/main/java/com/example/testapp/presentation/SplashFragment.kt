@@ -7,10 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.testapp.R
 import com.example.testapp.databinding.FragmentSplashBinding
+import kotlinx.coroutines.*
 import java.lang.RuntimeException
+import kotlin.coroutines.CoroutineContext
 
 
-class SplashFragment : Fragment() {
+class SplashFragment : Fragment()/*, CoroutineScope*/ {
+
+    /*override val coroutineContext: CoroutineContext
+        get() = Dispatchers.Main + Job()*/
 
     private var _binding: FragmentSplashBinding? = null
     val binding: FragmentSplashBinding
@@ -24,17 +29,18 @@ class SplashFragment : Fragment() {
         return binding.root
     }
 
+    /*override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        *//*launch {
+            delay(3000)
+            withContext(Dispatchers.Main){
+                (activity as HomeStoreFragment)
+            }
+        }*//*
+    }*/
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SplashFragment().apply {
-                arguments = Bundle().apply {
-                }
-            }
-    }
 }

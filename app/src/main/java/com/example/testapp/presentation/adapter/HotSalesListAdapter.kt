@@ -1,4 +1,4 @@
-package com.example.testapp.presentation
+package com.example.testapp.presentation.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -8,7 +8,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testapp.R
-import com.example.testapp.domain.entity.BestSellerItem
 import com.example.testapp.domain.entity.HotSales
 import com.squareup.picasso.Picasso
 
